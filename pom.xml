@@ -1,0 +1,67 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.commencis</groupId>
+  <artifactId>commencis-test</artifactId>
+  <version>1.0</version>
+
+  <properties>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
+  </properties>
+
+<dependencyManagement>
+  <dependencies>
+    <!-- Selenium modüllerini TEK sürüme kilitle -->
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-bom</artifactId>
+      <version>4.35.0</version>
+      <type>pom</type>
+      <scope>import</scope>
+    </dependency>
+  </dependencies>
+</dependencyManagement>
+
+<dependencies>
+  <!-- Appium Java Client: LocationContext uyumluluğu fixli -->
+  <dependency>
+    <groupId>io.appium</groupId>
+    <artifactId>java-client</artifactId>
+    <version>10.0.0</version>
+  </dependency>
+
+  <!-- Selenium: BOM’dan sürüm alacak -->
+  <dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-java</artifactId>
+  </dependency>
+
+  <dependency>
+    <groupId>org.testng</groupId>
+    <artifactId>testng</artifactId>
+    <version>7.9.0</version>
+    <scope>test</scope>
+  </dependency>
+</dependencies>
+
+
+  <build>
+    <plugins>
+      <!-- Testleri terminal'den çalıştırmak için -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.2.5</version>
+        <configuration>
+          <testFailureIgnore>true</testFailureIgnore>
+        </configuration>
+      </plugin>
+      <!-- Allure raporu için -->
+      <plugin>
+        <groupId>io.qameta.allure</groupId>
+        <artifactId>allure-maven</artifactId>
+        <version>2.12.0</version>
+      </plugin>
+    </plugins>
+  </build>
+</project>
