@@ -1,7 +1,7 @@
 <project>
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.commencis</groupId>
-  <artifactId>commencis-test</artifactId>
+  <groupId>com.mobile-automation</groupId>
+  <artifactId>mobile-automation</artifactId>
   <version>1.0</version>
 
   <properties>
